@@ -204,18 +204,18 @@ img {
 .boxes {
   display: grid;
   grid-template-rows: auto;
-  grid-template-columns: 100%;
+  /* grid-template-columns: 100%; */
   gap: var(--vertical-space);
-  justify-items: center;
+  /* justify-items: center; */
 
   margin-bottom: calc(var(--spacing) * 2);
-  width: 100%;
+  /* width: 100%; */
 }
 
 .boxes .box {
   display: flex;
   flex-direction: column;
-  grid-column: span 12;
+
   gap: var(--spacing);
 
   padding: calc(var(--spacing) * 0.5);
@@ -340,9 +340,17 @@ body {
    }
 }
 
-/* Hámarksbreidd er 1400px */
-@media (min-width: 1400px) {
+@media (min-width: 500px) {
   .boxes {
-    grid-template-columns: repeat(3, 1fr); /* Þrjú box í hverri röð */
+    grid-template-columns: repeat(var(--columns), 1fr);
+  }
+  .boxes .box {
+    grid-column: span 6;
+  }
+}
+
+@media (min-width: 1000px) {
+  .boxes .box {
+    grid-column: span 4; 
   }
 }
